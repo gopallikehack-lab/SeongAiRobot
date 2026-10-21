@@ -1,4 +1,14 @@
-const { tg } = require('../lib/telegram');
+async function tg(method, body = {}) {
+  const r = await fetch(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/${method}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const j = await r.json();
+  if (!j.ok) throw new Error(j.description || 'Telegram error');
+  return j.result;
+}
+
 
 // Open once after deploying:  https://YOUR-APP.vercel.app/api/setup?key=YOUR_SETUP_KEY
 module.exports = async (req, res) => {
