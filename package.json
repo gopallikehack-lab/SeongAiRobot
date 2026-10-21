@@ -1,0 +1,7 @@
+{
+  "name": "seong-ai-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Seong AI Bot - premium Telegram AI bot on Vercel using OpenRouter free models with auto fallback",
+  "engines": { "node": ">=18" }
+}
